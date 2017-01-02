@@ -1,3 +1,4 @@
+//#define HTTP_DEBUG
 #include "RestClient.h"
 
 #ifdef HTTP_DEBUG
@@ -133,7 +134,10 @@ int RestClient::request(const char* method, const char* path,
             HTTP_DEBUG_PRINT("SSL certificate matches\n");
         } else {
             HTTP_DEBUG_PRINT("SSL certificate does not match\n");
-            return 0;
+            /*
+			return 0;
+			Just keep going and ignore the mismatch...
+			*/
         }
 
     } else {
